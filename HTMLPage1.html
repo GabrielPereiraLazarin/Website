@@ -1,0 +1,296 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="Autor">
+    <meta name="Gabriel Lazarin">
+    <style type="text/css">
+     
+      body {
+        margin: 5%;
+      }
+    	.light-mode {
+        color: black;
+        background: white;
+      }
+      .dark-mode {
+        color: blue;
+        background: black;
+      }
+      
+      .dark-mode a:link {
+        color: #66ffff;
+        text-decoration: none;
+      }
+      .dark-mode a:visited {
+        color: #ff99ff;
+        text-decoration: none;
+      }
+      .dark-mode a:hover {
+        text-decoration: underline overline;
+      }
+      .dark-mode a:active {
+        color: #ff0000;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Trocar entre modo claro e escuro -->
+    <div class="fixed-top">
+     <p> <a href="javascript:darkMode()"> </a></p>
+ <!-- escrita lightmode/darkmode  <p><a href="javascript:darkMode()"> </a> Modo Light/Dark<a href="javascript:lightMode()"><br> </a></p> -->
+    <p><a href="javascript:lightMode()"><img src="file:///C:/Users/gabri/OneDrive/%C3%81rea%20de%20Trabalho/acesso.jpg"
+
+          style="width: 30px; height: 20px;" title="lampada_acessa"></a><a href="javascript:darkMode()"><img
+
+          src="file:///C:/Users/gabri/OneDrive/%C3%81rea%20de%20Trabalho/apagada.jpg" 
+
+          style="width: 30px; height: 20px;" &gt;="" <="" p=""></a><a href="javascript:lightMode()">
+      </a></p>
+    <div id="luz"><a href="javascript:darkMode()"> </a></div>
+    <a href="javascript:darkMode()">
+      <script type="text/javascript">
+    	function lightMode() {
+        document.body.className = "light-mode";
+        
+      }
+      function darkMode() {
+        document.body.className = "dark-mode";
+      }
+    </script> </a> </div> 
+    <!--Escrita -->
+    <h1>
+      <center> <strong style="font-family: Arial;">Saúde em foco!<br>
+        </strong></center>
+    </h1>
+    <center><img src="https://github.com/GabrielPereiraLazarin/Website/blob/master/saude.png"
+
+        alt="" title="Saude em foco" style="width: 316px; height: 300px;"></center>
+    <p> </p>
+    <br>
+  
+    O índice de massa corporal (IMC) é uma medida internacional usada para calcular se uma pessoa está no peso ideal. Desenvolvido pelo polímata Lambert Quételet no fim do século XIX, trata-se de um método fácil e rápido para a avaliação do nível de gordura de cada pessoa, sendo, por isso, um preditor internacional de obesidade adotado pela Organização Mundial da Saúde (OMS).
+   
+   
+ <img src="file:///C:/Users/gabri/OneDrive/%C3%81rea%20de%20Trabalho/tabela.jpg"class="rounded mx-auto d-block" alt="...">
+ <p>
+ <p>
+     O IMC é determinado pela divisão da massa do indivíduo pelo quadrado de sua altura, em que a massa está em quilogramas e a altura em metros conforme mostra a imagem abaixo.<p>
+    <img src="file:///C:/Users/gabri/OneDrive/%C3%81rea%20de%20Trabalho/calculo.png" class="rounded mx-auto d-block" alt="...">  
+    </p>
+      </p>
+      </p>
+      </p>
+
+    <h4> Calcule aqui seu Imc</h4>
+
+    <!-- Button trigger modal imc -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+  Calcule seu IMC
+</button>
+
+<!-- Modal imc -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog"> 
+    <div class="modal-content"> 
+      <div class="modal-header" > 
+        <h5 class="modal-title" id="exampleModalLabel">IMC</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+      <p>Peso (kg): <input id="peso" type="text"></p>
+    <p>Altura (m): <input id="altura" type="text"></p>
+    <p id="imc">IMC: </p>
+    <p id="Situação">Situação: </p>
+    <p> <button name="Calculo" class="btn btn-success" onclick="calcularImc()">Calcular</button>
+
+      <script type="text/javascript">
+      function calcularImc()
+      {
+        var peso = document.querySelector("#peso").value;
+        var altura = document.querySelector("#altura").value;
+        var Correto = true;
+        if (peso == "")
+        {
+          alert("Peso inválido!");
+          Correto = false;
+        }
+        if (altura == "")
+        {
+          alert("Altura inválida!");
+          Correto = false;
+        }
+        if (Correto)
+        {
+          var imc = peso / Math.pow(altura, 2) ;
+          var str = "";
+
+          if (imc < 19)
+            str = "Abaixo do peso!";
+
+           else if (imc>19 && imc<25 )
+            str = "Peso ideal!"
+       else  if (imc >25 && imc <29)
+            str = "Sobrepeso!";
+            else  if (imc >29 && imc <34)
+            str = "Obesidade Grau 1!";
+            else  if (imc >34 && imc <39)
+            str = "Obesidade Grau 2!";
+            else
+              str = "Obesidade Grau 3!";
+          document.getElementById("imc").innerHTML = "IMC = " + parseFloat(imc.toFixed(2));
+          document.getElementById("Situação").innerHTML = "Situação: " + str;
+        }
+        
+       } </script></p>
+   
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>     
+      </div>
+    </div>
+  </div>
+</div>
+<p>
+  
+<h3> Receitas FIT <h3>
+<p>
+
+<!-- Button trigger modal Panquecas -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#Panquecas">
+  Panquecas
+</button>
+
+<!-- Modal Panquecas -->
+<div class="modal fade" id="Panquecas" tabindex="-1" aria-labelledby="Panquecas" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header" > 
+      <span style="color: green;">
+        <h5 class="modal-title" id="Panquecas">Panqueca de aveia</h5> </span>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      <span style="color: green;">
+       <h5> Ingredientes <br>
+1 xícara de aveia em flocos finos ou farinha de aveia <br>
+1 xícara de água<br>
+2 colheres de sopa de melado<br>
+1 colher de sopa de farinha de linhaça<br>
+1 colher de chá de fermento químico em pó<br> <br>
+Modo de preparo<br> <br>
+Coloque todos os ingredientes no liquidificador, com exceção do fermento, e bata até ficar homogêneo. Se você estiver usando farinha de aveia, pode misturar todos os ingredientes manualmente
+Acrescente o fermento por último e misture delicadamente
+Aqueça uma frigideira antiaderente em fogo baixo. Espalhe um pouco da massa e tampe para abafar e já começar a assar o outro lado
+Verifique se está bem assada e vire para assar o outro lado até dourar. Tampe novamente para abafar
+Repita o processo até terminar a massa
+Sirva com o acompanhamento de sua preferência (mel, frutas, geleias, castanhas) <h5> </span>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>     
+      </div>
+    </div>
+  </div>
+</div>
+<p>
+
+<!-- Button trigger modal Macarrao -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#Macarrao">
+  Macarrao
+</button>
+
+<!-- Modal Macarrao -->
+<div class="modal fade" id="Macarrao" tabindex="-1" aria-labelledby="Macarrao" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header" > 
+      <span style="color: green;">
+        <h5 class="modal-title" id="Macarrao">Macarrão Integral Caprese</h5> </span>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+          <span  aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      <span style="color: green;">
+       <h5> Ingredientes:<br>
+5 colheres (sopa) de azeite<br>
+3 dentes de alho picados<br>
+15 tomatinhos cortados ao meio<br>
+150g macarrão tipo espaguete integral cru (cozinhe para usar na receita)<br>
+1 colher (chá) de orégano<br>
+folhas de manjericão<br>
+100g Mozzarella de búfala (ou comum)<br>
+sal e pimenta-do-reino à gosto.<br> <br>
+Modo de preparo<br><br>
+Frite o alho no azeite sem deixar dourar. Acrescente os tomatinhos e misture por 1 minuto. Junte o macarrão já cozido. Tempere com sal, orégano e pimenta-do-reino.
+Acrescente o manjericão e por fim a mozzarella de búfala em pedaços e seja feliz!<h5> </span>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>     
+      </div>
+    </div>
+  </div>
+</div>
+<p>
+<!-- Button trigger modal Bolo -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#Bolo">
+  Bolo integral de banana
+</button>
+
+<!-- Modal Bolo -->
+<div class="modal fade" id="Bolo" tabindex="-1" aria-labelledby="Bolo" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header" > 
+      <span style="color: green;">
+        <h5 class="modal-title" id="Bolo">Bolo integral de banana</h5> </span>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+          <span  aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      <span style="color: green;">
+       <h5> Ingredientes:<br>
+4 ovos inteiros <br>
+6 bananas caturra cortadas em rodelas <br>
+1/2 xícara de chá de óleo de canola<br>
+1/2 xícara de leite desnatado<br>
+1 xícara de chá de farinha de trigo integral<br>
+1 xícara de chá de aveia<br>
+2 xícaras de chá, não muito cheias, de açúcar mascavo.<br>
+canela para salpicar<br>
+1 colher de sopa de fermento em pó<br>
+<br>
+MODO DE PREPARO<br><br>
+Bata todos os ingredientes no liqüidificador com apenas 1 banana, coloque em forma untada com óleo e farinha. Ponha as rodelas de banana sobre essa massa e salpique com canela.
+Assar em forno pré-aquecido, a 180° por aproximadamente 50 minutos.<h5> </span>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>     
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  </body>
+</html>
