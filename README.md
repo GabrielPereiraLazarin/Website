@@ -1,1 +1,1 @@
-https://gabrielpereiralazarin.github.io/GabrielPereiraLazarin.io/HTMLPage1.html
+https://gabrielpereiralazarin.github.io/Website/HTMLPage1.html
